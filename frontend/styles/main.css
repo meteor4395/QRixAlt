@@ -1,0 +1,73 @@
+/* Custom styles beyond Tailwind */
+.hidden {
+    display: none;
+}
+
+#video {
+    width: 100%;
+    max-width: 640px;
+    height: auto;
+}
+
+.scan-overlay {
+    position: absolute;
+    border: 2px solid #4CAF50;
+    box-shadow: 0 0 0 99999px rgba(0, 0, 0, 0.5);
+}
+
+.scanning-animation {
+    animation: scan 2s infinite;
+}
+
+@keyframes scan {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+#qr-output {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#qr-output canvas {
+    margin: 0 auto;
+    display: block;
+    border: 1px solid #e5e7eb;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: white;
+}
+
+.qr-details {
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    background-color: #f9fafb;
+}
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #qr-output, #qr-output * {
+        visibility: visible;
+    }
+    #qr-output {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: none;
+    }
+}
